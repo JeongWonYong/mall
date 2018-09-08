@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mall.admin.member.mapper.MemberDao">
+
+	<cache />
+
+	<select id="getMemberList" resultType="com.mall.admin.member.entity.MemberEntity"
+		parameterType="com.mall.admin.member.entity.MemberEntity">
+		SELECT
+			mem_sq as memSq,
+			mem_id as memId,
+			mem_pw as memPw,
+			mem_phone as memPhone,
+			mem_name as memName,
+			mem_post_addr as memPostAddr,
+			mem_addr as memAddr,
+			mem_level as memLevel,
+			mem_state as memState,
+			mem_marketing_yn as memMarketingYn,
+			mem_join_date as memJoinDate,
+			mem_last_login as memLastLogin
+		FROM tu_member
+		ORDER BY mem_join_date DESC
+		LIMIT #{startNum}, #{endNum}
+	</select>
+
+	<select id="getMember" resultType="com.mall.admin.member.entity.MemberEntity" parameterType="com.mall.admin.member.entity.MemberEntity">
+		SELECT
+			mem_sq as memSq,
+			mem_id as memId,
+			mem_pw as memPw,
+			mem_phone as memPhone,
+			mem_name as memName,
+			mem_post_addr as memPostAddr,
+			mem_addr as memAddr,
+			mem_level as memLevel,
+			mem_state as memState,
+			mem_marketing_yn as memMarketingYn,
+			mem_join_date as memJoinDate,
+			mem_last_login as memLastLogin
+		FROM tu_member
+		WHERE mem_sq = #{memSq}
+	</select>
+	
+	<select id="getAllMemberCnt" resultType="Integer" >
+		SELECT COUNT(1)
+		FROM tu_member
+	</select>
+</mapper>

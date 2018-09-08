@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mall.admin.category.mapper.SubCategoryDao">
+
+	<cache />
+
+	<select id="getSubCategoryList" resultType="com.mall.admin.category.entity.SubCategoryList"
+		parameterType="com.mall.admin.category.entity.SubCategoryList">
+		select 
+			cat_sub_sq as catSubSeq,
+			cat_sq as catSeq,
+			cat_nm as catNm,
+			cat_cd as catCd,
+			navigation_yn as naviYn, 
+			insert_id as insertID,
+			update_id as updateID,
+			insert_date as insertDate,
+			update_date as updateDate
+		from tm_category_sub
+
+	</select>
+</mapper>
