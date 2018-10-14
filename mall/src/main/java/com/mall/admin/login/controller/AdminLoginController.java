@@ -31,6 +31,16 @@ public class AdminLoginController {
 		return mav;
 	}
 	
+	//로그인 화면 호출
+	@RequestMapping("/shop/test")
+	public ModelAndView ind2ex(ModelAndView mav) {
+	    logger.info("Admin login page!");
+	    
+	    mav.setViewName("/shop/test");
+
+		return mav;
+	}
+	
 	//로그인 실행
 	@RequestMapping(value="/admin/login", params= "action=login")
 	public ModelAndView login(HttpSession session,ModelAndView mav, AdminMemberEntity entity) {
