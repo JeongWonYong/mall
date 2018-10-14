@@ -41,7 +41,7 @@
 		<td>상태</td><td><input type="text" value="${mem.memState}" readonly="readonly"/></td>
 	</tr>
 	<tr>
-		<td>마케팅 동의여부</td><td><input type="text" value="${mem.memMarketing}" readonly="readonly"/></td>
+		<td>마케팅 동의여부</td><td><input type="text" value="${mem.memMarketingYn}" readonly="readonly"/></td>
 	</tr>
 	<tr>
 		<td>가입일시</td><td><input type="text" value="${mem.memJoinDate}" readonly="readonly"/></td>

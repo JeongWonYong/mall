@@ -1,11 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/admin/adminHeader.jsp" %>
-</head>
-<body>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:admin_template>
+    <jsp:attribute name="customCss">
+    </jsp:attribute>
+    <jsp:attribute name="customJs">
+		<script type="text/javascript">
+			$(function(){
+				$('p').on('click',function(){
+					var sq = $(this).data().memSq;
+					
+					location.href = "/member/detail?memSq="+sq;
+				});
+			});
+		</script>
+    </jsp:attribute>
+<jsp:body>
+
 <c:forEach items="${memberList}" var="i">
-	<p>${i }</p>
+	<p data-mem-sq="${i.memSq }">${i }</p>
 </c:forEach>
 
-</body>
-</html>
+</jsp:body>
+</t:admin_template>

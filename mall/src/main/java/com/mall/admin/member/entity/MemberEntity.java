@@ -1,10 +1,11 @@
 package com.mall.admin.member.entity;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
 import com.mall.common.PagingEntity;
 
-public class MemberEntity extends PagingEntity{
+public class MemberEntity extends PagingEntity implements Serializable{
     private BigInteger memSq;
     private String memId;
     private String memPw;
