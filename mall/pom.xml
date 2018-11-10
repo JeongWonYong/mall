@@ -160,6 +160,12 @@
 			<artifactId>mariadb-java-client</artifactId>
 			<version>2.2.1</version>
 		</dependency>
+		
+		<dependency>
+        	<groupId>net.sf.json-lib</groupId>
+        	<artifactId>json-lib-ext-spring</artifactId>
+        	<version>1.0.2</version>
+        </dependency>
 
 
 		<!-- 사용자 추가 dependencies End -->

@@ -13,4 +13,6 @@ public interface MemberDao {
     public List<MemberEntity> getMemberList(MemberEntity member);
     public MemberEntity getMember(MemberEntity member);
     public int getAllMemberCnt();
+    
+    public int updateMemberInfo(MemberEntity member);
 }

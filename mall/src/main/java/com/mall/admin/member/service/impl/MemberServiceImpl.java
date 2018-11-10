@@ -62,4 +62,13 @@ public class MemberServiceImpl implements MemberService {
     public int getAllMemberCnt() {
         return memberMapper.getAllMemberCnt();
     }
+
+    /**
+     * 사용자 정보 변경
+     */
+    @Override
+    public int modifyMemberInfo(MemberEntity member) {
+        
+        return memberMapper.updateMemberInfo(member);
+    }
 }

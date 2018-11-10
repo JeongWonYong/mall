@@ -12,8 +12,8 @@
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.mariadb.jdbc.Driver"></property>
       <property name="url" value="jdbc:mariadb://localhost:3306/mall"></property>
-      <property name="username" value="mall"></property>
-      <property name="password" value="mall"></property>
+      <property name="username" value="root"></property>
+      <property name="password" value="root1234"></property>
     </bean>
      
       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

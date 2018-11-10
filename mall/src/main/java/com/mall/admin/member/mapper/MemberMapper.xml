@@ -47,4 +47,18 @@
 		SELECT COUNT(1)
 		FROM tu_member
 	</select>
+	
+	<update id="updateMemberInfo" parameterType="com.mall.admin.member.entity.MemberEntity">
+		UPDATE tu_member
+		SET
+			mem_state = #{memState}
+			<if test="memLevel != null" >
+			, mem_level = #{memLevel}
+			</if>
+			<if test="memMarketingYn != null" >
+			, mem_marketing_yn = #{memMarketingYn}
+			</if>
+		WHERE mem_sq = #{memSq}
+	</update>
+	
 </mapper>

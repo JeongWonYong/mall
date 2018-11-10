@@ -6,6 +6,9 @@ import java.math.BigInteger;
 import com.mall.common.PagingEntity;
 
 public class MemberEntity extends PagingEntity implements Serializable{
+
+    private static final long serialVersionUID = 6331689946411608170L;
+    
     private BigInteger memSq;
     private String memId;
     private String memPw;

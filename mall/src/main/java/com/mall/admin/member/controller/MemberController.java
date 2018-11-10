@@ -1,10 +1,15 @@
 package com.mall.admin.member.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mall.admin.member.entity.MemberEntity;
@@ -65,6 +70,24 @@ public class MemberController {
         ModelAndView mav = new ModelAndView("/admin/member/info");
         
         mav.addObject("memberInfo", memberService.getMember(member));
+        return mav;
+    }
+    
+    @RequestMapping( value = "modify.ajax", method = RequestMethod.GET )
+    public ModelAndView memModifyInfo( MemberEntity member) {
+        ModelAndView mav = new ModelAndView("jsonView");
+        Map<String, Object> outMap = new HashMap<String, Object>();
+        
+        logger.info(member.toString());
+        int result = memberService.modifyMemberInfo(member);
+        if(result > 0) {
+            outMap.put("CODE", "0000");
+            outMap.put("MSG", "회원정보를 수정하였습니다.");
+        } else {
+            outMap.put("CODE", "9999");
+            outMap.put("MSG", "회원정보 수정에 실패했습니다.");
+        }
+        mav.addObject("result", outMap);
         return mav;
     }
 }

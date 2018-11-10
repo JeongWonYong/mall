@@ -11,4 +11,6 @@ public interface MemberService {
     public List<MemberEntity> getMemberList(MemberEntity member);
     public MemberEntity getMember(MemberEntity member);
     public int getAllMemberCnt();
+    
+    public int modifyMemberInfo(MemberEntity member);
 } 
