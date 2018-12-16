@@ -9,6 +9,26 @@ public class MemberEntity extends PagingEntity implements Serializable{
 
     private static final long serialVersionUID = 6331689946411608170L;
     
+    public MemberEntity() {
+        super();
+    }
+    
+    public MemberEntity(BigInteger memSq, String memId, String memPw, String memPhone, String memName, String memPostAddr, String memAddr, int memLevel, char memState, char memMarketingYn, String memJoinDate, String memLastLogin) {
+        super();
+        this.memSq = memSq;
+        this.memId = memId;
+        this.memPw = memPw;
+        this.memPhone = memPhone;
+        this.memName = memName;
+        this.memPostAddr = memPostAddr;
+        this.memAddr = memAddr;
+        this.memLevel = memLevel;
+        this.memState = memState;
+        this.memMarketingYn = memMarketingYn;
+        this.memJoinDate = memJoinDate;
+        this.memLastLogin = memLastLogin;
+    }
+
     private BigInteger memSq;
     private String memId;
     private String memPw;

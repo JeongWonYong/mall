@@ -8,25 +8,25 @@
     <jsp:attribute name="customJs">
 		<script type="text/javascript">
 			$(function(){
-				var memInfo = {
+				var memberInfo = {
 						memSq : $('#memSq').val()
 						,memLevel : $('#memLevel').attr('data-default')
 						,memState : $('#memState').attr('data-default')
 						,memMarkegintYn : $('#memMarketingYn').attr('data-default')
 				};
 				
-				$('#memLevel option[value='+memInfo.memLevel+']').prop('selected',true);
-				$('#memState option[value='+memInfo.memState+']').prop('selected',true);
-				$('#memMarketingYn option[value='+memInfo.memMarkegintYn+']').prop('selected',true);
+				$('#memLevel option[value='+memberInfo.memLevel+']').prop('selected',true);
+				$('#memState option[value='+memberInfo.memState+']').prop('selected',true);
+				$('#memMarketingYn option[value='+memberInfo.memMarkegintYn+']').prop('selected',true);
 				
 				//이전
 				$('#btnLeft').on('click',function(){
 					if($(this).hasClass('back')){
 						history.go(-1);
 					} else if ($(this).hasClass('false')){
-						$('#memLevel option[value='+memInfo.memLevel+']').prop('selected',true);
-						$('#memState option[value='+memInfo.memState+']').prop('selected',true);
-						$('#memMarketingYn option[value='+memInfo.memMarkegintYn+']').prop('selected',true);
+						$('#memLevel option[value='+memberInfo.memLevel+']').prop('selected',true);
+						$('#memState option[value='+memberInfo.memState+']').prop('selected',true);
+						$('#memMarketingYn option[value='+memberInfo.memMarkegintYn+']').prop('selected',true);
 						$('#memLevel, #memState, #memMarketingYn').prop('disabled',true);
 						$('#btnSubmit').removeClass().addClass('modify').text("수정");
 					}
@@ -37,17 +37,17 @@
 						$('#btnLeft').removeClass().addClass('false').text('취소');
 						$('#memLevel, #memState, #memMarketingYn').prop('disabled',false);
 					} else if($(this).hasClass('submit')){
-						memInfo.memLevel = $('#memLevel').val();
-						memInfo.memState = $('#memState').val();
-						memInfo.memMarkegintYn = $('#memMarketingYn').val();
+						memberInfo.memLevel = $('#memLevel').val();
+						memberInfo.memState = $('#memState').val();
+						memberInfo.memMarkegintYn = $('#memMarketingYn').val();
 						
-						console.log(memInfo);
+						console.log(memberInfo);
 						$.ajax({
-							type : "GET"
-							, url : "/member/modify.ajax"
+							type : "POST"
+							, url : "/member/modify"
 							, contentType: "application/json; charset=utf-8"
 							, dataType : "json"
-							, data : memInfo
+							, data : 	JSON.stringify(memberInfo)
 							,success : function(data){
 								if("0000" == data.result.CODE){
 									//성공

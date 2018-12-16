@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mall.admin.member.entity.MemberEntity;
@@ -73,8 +74,9 @@ public class MemberController {
         return mav;
     }
     
-    @RequestMapping( value = "modify.ajax", method = RequestMethod.GET )
-    public ModelAndView memModifyInfo( MemberEntity member) {
+    @RequestMapping( value = "modify", method = RequestMethod.POST)
+    @ResponseBody
+    public ModelAndView memModifyInfo(@RequestBody MemberEntity member) {
         ModelAndView mav = new ModelAndView("jsonView");
         Map<String, Object> outMap = new HashMap<String, Object>();
         
