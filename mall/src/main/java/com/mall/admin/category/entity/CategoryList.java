@@ -13,6 +13,23 @@ public class CategoryList {
 	private Date insertDate;
 	private Date updateDate;
 	
+	public CategoryList() {
+		super();
+	}
+	
+	public CategoryList(int catSeq, String catNm, String catCd, String catNavYn, String insertID, String updateID, Date insertDate, Date updateDate) {
+		super();
+		this.catSeq = catSeq;
+		this.catNm = catNm;
+		this.catCd = catCd;
+		this.catNavYn = catNavYn;
+		this.insertID = insertID;
+		this.updateID = updateID;
+		this.insertDate = insertDate;
+		this.updateDate = updateDate;
+	
+	}
+
 	public int getCatSeq() {
 		return catSeq;
 	}

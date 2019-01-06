@@ -9,4 +9,5 @@ import com.mall.admin.category.entity.CategoryList;
 @Repository
 public interface CategoryDao {
 	public List<CategoryList> getCategoryList();
+	public void insertCategory(CategoryList catelist);
 }

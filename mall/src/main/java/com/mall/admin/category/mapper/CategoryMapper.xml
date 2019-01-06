@@ -19,4 +19,9 @@
 		from tm_category
 
 	</select>
+	
+	<insert id="insertCategory" parameterType="com.mall.admin.category.entity.CategoryList">
+	insert into tm_category(cat_nm, cat_cd, nav_use_yn, insert_id, update_id, insert_date, update_date)
+	value (#{catNm}, #{catCd}, #{catNavYn}, #{insertID}, #{updateID}, SYSDATE(), SYSDATE())
+	</insert>
 </mapper>
